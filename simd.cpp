@@ -52,7 +52,21 @@ void assembler() {
 	if ((c & (1 << 20)) != 0)
 		cout << "SSE4.2 is supported" << endl;
 
+}
+void intrinsic() {// wrapper function around assembly language instead of using register
+	auto a = _mm_set_ps(1, 2, 3, 4);
+	auto b = _mm_set_ps(4, 3, 2, 14);
+	auto c = _mm_add_ps(a,b);
 
+	float f = c.m128_f32[1];
+	cout << "Intrinsic value is:" << f << endl;
+
+	__try {
+		__m256d z = _mm256_set_pd(1, 2, 3, 4);
+	}
+	__except (1) {
+		cout << "Sorry you can not execute this:";
+	}
 
 
 }
@@ -61,8 +75,9 @@ void assembler() {
 int main(int argc,char* argv[] )
 {
 	assembler();
+	intrinsic();
+
 
 	system("Pause");
     return 0;
 }
-
