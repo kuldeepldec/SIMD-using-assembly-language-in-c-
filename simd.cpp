@@ -1,5 +1,5 @@
 // simd.cpp : Defines the entry point for the console application.
-// Single Instruction multiple data using cpu register for parallel computing
+// Single Instruction multiple data allows vectorized operations using large registers
 // This program uses assembly language in C++
 
 #include "stdafx.h"
